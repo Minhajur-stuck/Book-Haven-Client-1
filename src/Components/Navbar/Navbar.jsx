@@ -1,7 +1,15 @@
-import React from "react";
+import React, { use } from "react";
 import { Link, NavLink } from "react-router";
+import { AuthContext } from "../../Context/AuthContext";
 
 const Navbar = () => {
+  const { user, signOutuser, loading } = use(AuthContext);
+  console.log(user);
+
+  if (loading) {
+    return <span className="loading loading-spinner text-primary"></span>;
+  }
+
   const links = (
     <>
       <li>
@@ -19,6 +27,12 @@ const Navbar = () => {
       </li>
     </>
   );
+
+  const handleSignOut = () => {
+    signOutuser().then(() => {
+      console.log("ber hoye gelo");
+    });
+  };
   return (
     <div className="navbar bg-base-100 shadow-sm">
       <div className="navbar-start">
@@ -52,8 +66,25 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
-      <div className="navbar-end">
-        <Link to='/login'>login/register</Link>
+      <div className="navbar-end flex gap-1  items-center border">
+        <div>
+          {user && (
+            <div className="tooltip tooltip-bottom" data-tip={user.displayName}>
+              <img className="w-10 mt-1 rounded" src={user.photoURL} alt="" />
+            </div>
+          )}
+        </div>
+        <div>
+          {user ? (
+            <button className="btn" onClick={handleSignOut}>
+              Logout
+            </button>
+          ) : (
+            <Link className="btn" to="/login">
+              login/register
+            </Link>
+          )}
+        </div>
       </div>
     </div>
   );
