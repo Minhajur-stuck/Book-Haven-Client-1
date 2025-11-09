@@ -1,12 +1,20 @@
-import React from "react";
+import React, { use } from "react";
+import { AuthContext } from "../../Context/AuthContext";
 
 const Login = () => {
+  const {signInGoogle} = use(AuthContext)
   const handleLogin = (e) => {
     e.preventDefault();
     
     alert("Login clicked!");
   };
 
+  const handleGoogle= ()=>{
+    signInGoogle()
+    .then(result =>{
+      console.log(result.user)
+    })
+  }
  
 
   return (
@@ -61,7 +69,7 @@ const Login = () => {
         </div>
 
         <button
-         
+         onClick={handleGoogle}
           className="w-full bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition mb-4"
         >
           Login with Google
