@@ -1,16 +1,35 @@
-import React from "react";
+import React, { use } from "react";
+import { AuthContext } from "../../Context/AuthContext";
 
 const Register = () => {
+  const {user, createUser, signInGoogle} = use(AuthContext)
   const handleRegister = (e) => {
     e.preventDefault();
-  
-    alert("Register clicked!");
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const photoUrl = e.target.photo.value;
+    const password = e.target.password.value;
+
+    console.log(name, email, password, photoUrl)
+
+    createUser(email, password)
+    .then(result =>{
+      console.log(result.user)
+      alert('registation successful')
+      e.target.reset()
+    })
+   .catch(err => {
+    console.log(err.message)
+   })
+    
   };
 
-  const handleGoogleLogin = () => {
-   
-    alert("Google Login clicked!");
-  };
+  const handleGoogle= ()=>{
+    signInGoogle()
+    .then(result =>{
+      console.log(result.user)
+    })
+  }
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
@@ -27,6 +46,7 @@ const Register = () => {
               placeholder="Enter your name"
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
+              name="name"
             />
           </div>
           <div>
@@ -39,6 +59,7 @@ const Register = () => {
               placeholder="Enter your email"
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
+              name="email"
             />
           </div>
           <div>
@@ -48,6 +69,7 @@ const Register = () => {
             <input
               type="text"
               id="photo"
+              name="photo"
               placeholder="Enter your photo URL"
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
@@ -62,6 +84,7 @@ const Register = () => {
               placeholder="Enter your password"
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
+              name="password"
             />
           </div>
           <button
@@ -79,7 +102,7 @@ const Register = () => {
         </div>
 
         <button
-          onClick={handleGoogleLogin}
+          onClick={handleGoogle}
           className="w-full bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition mb-4"
         >
           Register with Google

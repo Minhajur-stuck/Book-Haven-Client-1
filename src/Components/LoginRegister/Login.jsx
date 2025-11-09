@@ -2,20 +2,30 @@ import React, { use } from "react";
 import { AuthContext } from "../../Context/AuthContext";
 
 const Login = () => {
-  const {signInGoogle} = use(AuthContext)
+  const { signInGoogle, signInwithEmail } = use(AuthContext);
   const handleLogin = (e) => {
     e.preventDefault();
-    
-    alert("Login clicked!");
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    console.log(email, password);
+
+    signInwithEmail(email, password)
+      .then((result) => {
+        console.log(result.user);
+        alert("login done");
+        e.target.reset();
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
   };
 
-  const handleGoogle= ()=>{
-    signInGoogle()
-    .then(result =>{
-      console.log(result.user)
-    })
-  }
- 
+  const handleGoogle = () => {
+    signInGoogle().then((result) => {
+      console.log(result.user);
+    });
+  };
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
@@ -32,6 +42,7 @@ const Login = () => {
               placeholder="Enter your email"
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
+              name="email"
             />
           </div>
           <div>
@@ -44,6 +55,7 @@ const Login = () => {
               placeholder="Enter your password"
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
+              name="password"
             />
           </div>
           <div className="text-right">
@@ -69,7 +81,7 @@ const Login = () => {
         </div>
 
         <button
-         onClick={handleGoogle}
+          onClick={handleGoogle}
           className="w-full bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition mb-4"
         >
           Login with Google
