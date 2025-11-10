@@ -6,9 +6,9 @@ const Navbar = () => {
   const { user, signOutuser, loading } = use(AuthContext);
   console.log(user);
 
-  if (loading) {
-    return <span className="loading loading-spinner text-primary"></span>;
-  }
+  // if (loading) {
+  //   return <span className="loading loading-spinner text-primary"></span>;
+  // }
 
   const links = (
     <>
@@ -66,7 +66,7 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
-      <div className="navbar-end flex gap-1  items-center border">
+      <div className="navbar-end flex gap-1  items-center">
         <div>
           {user && (
             <div className="tooltip tooltip-bottom" data-tip={user.displayName}>
