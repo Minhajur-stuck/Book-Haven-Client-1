@@ -3,6 +3,7 @@ import { AuthContext } from '../../Context/AuthContext';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import Banner from '../pages/Banner';
 import LatestBook from '../pages/LatestBook';
+import BookOfTheweek from '../pages/BookOfTheweek';
 
 const Home = () => {
   // const {name} = use(AuthContext)
@@ -11,6 +12,7 @@ const Home = () => {
     <div>
       <Banner></Banner>
       <LatestBook></LatestBook>
+      <BookOfTheweek></BookOfTheweek>
     </div>
   );
 };
