@@ -3,7 +3,7 @@ import { Link } from "react-router";
 
 const Banner = () => {
   return (
-    <div className="border text-center  px-20 py-5  flex items-center justify-between overflow-hidden">
+    <div className="border text-center  px-20 py-5  flex items-center justify-between overflow-hidden mb-25">
       <div className="space-y-5">
         <motion.h1
           className="text-5xl "
@@ -14,13 +14,13 @@ const Banner = () => {
           Welcome to Digital Library
         </motion.h1>
         <motion.h2
-          className="text-xl"
+          className="text-2xl"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
           {" "}
-          Explore, Add, and Manage your favorite books easily!
+         <span className="text-orange-400">Explore</span>  _ <span className="text-sky-400">Read</span> _ <span className="text-green-900">Add</span> _ <span className="text-yellow-600">Manage</span> 
         </motion.h2>
         <div className="flex items-center justify-center gap-5">
           <Link to='/allBooks' className="btn">All Books</Link>
