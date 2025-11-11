@@ -16,6 +16,7 @@ import axios from "axios";
 import BookDetails from "./Components/pages/BookDetails";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import UpdateBook from "./Components/pages/UpdateBook";
+import ErrorPage from "./Components/pages/ErrorPage";
 
 const router = createBrowserRouter([
   {
@@ -62,7 +63,11 @@ const router = createBrowserRouter([
         element:<PrivateRoute>
           <UpdateBook></UpdateBook>
         </PrivateRoute>
-      }
+      },
+       {
+        path: "*",
+        Component: ErrorPage,
+      },
     ],
   },
 ]);

@@ -1,12 +1,26 @@
-import React, { use } from "react";
+import React, { use, useEffect, useState } from "react";
 import { useLoaderData } from "react-router";
+import Spinner from "../Spinner/Spinner";
 
 const BookDetails = () => {
   const book = useLoaderData();
+  const [loading, setLoading]= useState(true)
+      
+  useEffect(()=>{
+    const timer = setTimeout(() => {
+      setLoading(false)
+    }, 1000);
+
+    return ()=> clearTimeout(timer)
+  }, [])
 
   console.log(book.data);
   const { title, author, coverImage, genre, rating, summary, userEmail } =
     book.data;
+
+    if(loading){
+      return <Spinner></Spinner>
+    }
   return (
     <div className="m-5">
       <div className="flex justify-center  w-[800px] mx-auto">
