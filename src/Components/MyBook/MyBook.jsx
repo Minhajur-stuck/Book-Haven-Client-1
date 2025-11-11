@@ -2,10 +2,12 @@ import React, { use, useEffect, useState } from "react";
 import { AuthContext } from "../../Context/AuthContext";
 import axios from "axios";
 import { Link } from "react-router";
+import Spinner from "../Spinner/Spinner";
 
 const MyBook = () => {
   const { user } = use(AuthContext);
   const [myBooks, setBooks] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios
@@ -13,6 +15,7 @@ const MyBook = () => {
       .then((data) => {
         setBooks(data.data);
         console.log(data.data);
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
@@ -32,8 +35,12 @@ const MyBook = () => {
       setBooks(remaining);
     });
   };
+
+  if (loading) {
+    return <Spinner></Spinner>
+  }
   return (
-    <div>
+    <div className="card shadow-2xl w-[700px] mx-auto mt-5">
       <table className="table">
         {/* head */}
         <thead>

@@ -1,16 +1,23 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router";
+import Spinner from "../Spinner/Spinner";
 
 const AllBooks = () => {
   const [books, setBooks] = useState([]);
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     axios.get("http://localhost:3000/all-books").then((data) => {
       setBooks(data.data);
       console.log(data.data);
+      setLoading(false)
     });
   }, []);
+
+  if(loading){
+  return <Spinner></Spinner>
+  }
 
   //name,author,genre, rating.
   return (
