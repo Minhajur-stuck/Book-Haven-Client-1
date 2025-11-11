@@ -14,6 +14,7 @@ import Register from "./Components/LoginRegister/Register";
 import AuthProvider from "./Context/AuthProvider";
 import axios from "axios";
 import BookDetails from "./Components/pages/BookDetails";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -47,7 +48,9 @@ const router = createBrowserRouter([
       {
         path:'bookDetails/:id',
         loader:({params})=>axios.get(`http://localhost:3000/book-details/${params.id}`),
-        Component: BookDetails
+        element:<PrivateRoute>
+          <BookDetails></BookDetails>
+        </PrivateRoute>
       }
     ],
   },
