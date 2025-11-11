@@ -21,10 +21,11 @@ const AllBooks = () => {
           <thead>
             <tr>
               <th>Sl.</th>
-              <th>Name</th>
+              <th>Book Name</th>
               <th>Author</th>
               <th>Genre</th>
               <th>Rating</th>
+              <th className="pl-10">Actions</th>
             </tr>
           </thead>
           <tbody>

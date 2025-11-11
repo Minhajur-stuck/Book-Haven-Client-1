@@ -15,6 +15,7 @@ import AuthProvider from "./Context/AuthProvider";
 import axios from "axios";
 import BookDetails from "./Components/pages/BookDetails";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
+import UpdateBook from "./Components/pages/UpdateBook";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
         element:<PrivateRoute>
           <BookDetails></BookDetails>
         </PrivateRoute>
+      },{
+        path:'updateBook/:id',
+        loader:({params})=>axios.get(`http://localhost:3000/userbook-details/${params.id}`),
+        Component: UpdateBook
       }
     ],
   },
