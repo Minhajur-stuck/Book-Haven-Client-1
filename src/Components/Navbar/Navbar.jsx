@@ -1,6 +1,7 @@
 import React, { use } from "react";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../../Context/AuthContext";
+import { Tooltip } from "react-tooltip";
 
 const Navbar = () => {
   const { user, signOutuser, loading } = use(AuthContext);
@@ -69,11 +70,16 @@ const Navbar = () => {
       <div className="navbar-end flex gap-1  items-center">
         <div>
           {user && (
-            <div className="tooltip tooltip-bottom" data-tip={user.displayName}>
+            <div
+              data-tooltip-id="my-tooltip"
+              data-tooltip-content={user.displayName}
+              data-tooltip-place="bottom"
+            >
               <img className="w-10 mt-1 rounded" src={user.photoURL} alt="" />
             </div>
           )}
         </div>
+        <Tooltip id="my-tooltip" style={{ backgroundColor: "rgba(0, 0, 0, 1)", color: "#ffffffff", borderRadius:"10px" }}/>
         <div>
           {user ? (
             <button className="btn" onClick={handleSignOut}>

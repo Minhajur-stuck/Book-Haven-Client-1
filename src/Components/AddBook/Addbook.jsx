@@ -1,6 +1,7 @@
 import React, { use } from "react";
 import { AuthContext } from "../../Context/AuthContext";
 import axios from "axios";
+import toast, { Toaster } from "react-hot-toast";
 
 // ● Title
 // ● Author
@@ -25,8 +26,6 @@ const Addbook = () => {
     const userEmail = e.target.email.value;
     const userName = e.target.name.value;
 
-   
-
     const bookInfo = {
       title,
       author,
@@ -39,16 +38,17 @@ const Addbook = () => {
     };
     console.log(bookInfo);
 
-    axios.post("http://localhost:3000/add-book", bookInfo)
-    .then((res) => {
-      console.log(res);
-      alert("done");
-      e.target.reset()
-    })
-    .catch(err =>{
-      console.log(err)
-    })
-    
+    axios
+      .post("http://localhost:3000/add-book", bookInfo)
+      .then((res) => {
+        console.log(res);
+        toast.success("Book added");
+        e.target.reset();
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error("Something Went wrong!");
+      });
   };
   return (
     <div>
@@ -63,6 +63,7 @@ const Addbook = () => {
                 className="input w-full"
                 placeholder="Title"
                 name="title"
+                required
               />
             </div>
             <div className="flex flex-col">
@@ -72,6 +73,7 @@ const Addbook = () => {
                 className="input w-full"
                 placeholder="Author"
                 name="author"
+                required
               />
             </div>
             <div className="flex flex-col">
@@ -81,6 +83,7 @@ const Addbook = () => {
                 className="input w-full"
                 placeholder="Genre"
                 name="genre"
+                required
               />
             </div>
             <div className="flex flex-col">
@@ -90,6 +93,7 @@ const Addbook = () => {
                 className="input w-full"
                 placeholder="Rating"
                 name="rating"
+                required
               />
             </div>
 
@@ -100,6 +104,7 @@ const Addbook = () => {
                 className="input w-full"
                 placeholder="coverImage"
                 name="image"
+                required
               />
             </div>
             <div className="flex flex-col">
@@ -110,6 +115,7 @@ const Addbook = () => {
                 placeholder="User-Email"
                 name="email"
                 defaultValue={user.email}
+
               />
             </div>
             <div className="flex flex-col col-span-2">
@@ -120,6 +126,7 @@ const Addbook = () => {
                 placeholder="User-Name"
                 name="name"
                 defaultValue={user.displayName}
+                
               />
             </div>
             <div className="flex flex-col col-span-2 ">
@@ -129,11 +136,13 @@ const Addbook = () => {
                 className="input w-full"
                 placeholder="Summary"
                 name="summary"
+                required
               />
             </div>
 
             <button className="btn btn-neutral mt-4 col-span-2">Add</button>
           </form>
+          <Toaster></Toaster>
         </div>
       </div>
     </div>

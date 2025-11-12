@@ -3,6 +3,7 @@ import { AuthContext } from "../../Context/AuthContext";
 import axios from "axios";
 import { Link } from "react-router";
 import Spinner from "../Spinner/Spinner";
+import toast, { Toaster } from "react-hot-toast";
 
 const MyBook = () => {
   const { user } = use(AuthContext);
@@ -28,12 +29,16 @@ const MyBook = () => {
 
     axios.delete(`http://localhost:3000/delete-book/${id}`).then((res) => {
       console.log(res);
-      alert("success delete");
+      toast.success("deleted successfully");
       const remaining = myBooks.filter((book) => book._id !== id);
 
       console.log(remaining);
       setBooks(remaining);
-    });
+    })
+    .catch(err =>{
+      console.log(err.message)
+      toast.error('Something Went Wrong!');
+    })
   };
 
   if (loading) {
@@ -79,6 +84,7 @@ const MyBook = () => {
           ))}
         </tbody>
       </table>
+      <Toaster></Toaster>
     </div>
   );
 };

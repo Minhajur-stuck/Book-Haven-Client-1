@@ -2,6 +2,7 @@ import React, { use } from "react";
 import { useLoaderData, useParams } from "react-router";
 import { AuthContext } from "../../Context/AuthContext";
 import axios from "axios";
+import toast, { Toaster } from "react-hot-toast";
 
 const UpdateBook = () => {
   const {id} = useParams()
@@ -35,7 +36,10 @@ const UpdateBook = () => {
     axios.patch(`http://localhost:3000/update-book/${id}`, updateInfo)
     .then(res =>{
       console.log(res)
-      alert('success update')
+      toast.success('Updated succefully')
+    })
+    .catch(err=>{
+      toast.error('Something went wrong!');
     })
   };
   return (
@@ -92,7 +96,7 @@ const UpdateBook = () => {
                 className="input w-full"
                 placeholder="coverImage"
                 name="image"
-                defaultValue={book.coverImage}
+                defaultValue={book.image}
               />
             </div>
             <div className="flex flex-col">
@@ -133,6 +137,7 @@ const UpdateBook = () => {
               Update
             </button>
           </form>
+          <Toaster></Toaster>
         </div>
       </div>
     </div>
