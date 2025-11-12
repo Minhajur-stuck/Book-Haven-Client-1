@@ -13,9 +13,6 @@ const Root = () => {
   }
   return (
     <div>
-       {/* <button onClick={toggleTheme}>
-          {theme === "light" ? <FaMoon /> : <FaSun />}
-        </button> */}
       <Navbar></Navbar>
       <Outlet></Outlet>
       <Footer></Footer>
