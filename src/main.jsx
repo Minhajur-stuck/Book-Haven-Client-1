@@ -17,8 +17,7 @@ import BookDetails from "./Components/pages/BookDetails";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import UpdateBook from "./Components/pages/UpdateBook";
 import ErrorPage from "./Components/pages/ErrorPage";
-
-
+import { ThemeProvider } from 'next-themes'
 
 const router = createBrowserRouter([
   {
@@ -35,15 +34,19 @@ const router = createBrowserRouter([
       },
       {
         path: "addBook",
-        element: <PrivateRoute>
-          <Addbook></Addbook>
-        </PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <Addbook></Addbook>
+          </PrivateRoute>
+        ),
       },
       {
         path: "myBooks",
-         element:<PrivateRoute>
-         <MyBook></MyBook>
-        </PrivateRoute>
+        element: (
+          <PrivateRoute>
+            <MyBook></MyBook>
+          </PrivateRoute>
+        ),
       },
       {
         path: "login",
@@ -54,19 +57,26 @@ const router = createBrowserRouter([
         Component: Register,
       },
       {
-        path:'bookDetails/:id',
-        loader:({params})=>axios.get(`http://localhost:3000/book-details/${params.id}`),
-        element:<PrivateRoute>
-          <BookDetails></BookDetails>
-        </PrivateRoute>
-      },{
-        path:'updateBook/:id',
-        loader:({params})=>axios.get(`http://localhost:3000/userbook-details/${params.id}`),
-        element:<PrivateRoute>
-          <UpdateBook></UpdateBook>
-        </PrivateRoute>
+        path: "bookDetails/:id",
+        loader: ({ params }) =>
+          axios.get(`http://localhost:3000/book-details/${params.id}`),
+        element: (
+          <PrivateRoute>
+            <BookDetails></BookDetails>
+          </PrivateRoute>
+        ),
       },
-       {
+      {
+        path: "updateBook/:id",
+        loader: ({ params }) =>
+          axios.get(`http://localhost:3000/userbook-details/${params.id}`),
+        element: (
+          <PrivateRoute>
+            <UpdateBook></UpdateBook>
+          </PrivateRoute>
+        ),
+      },
+      {
         path: "*",
         Component: ErrorPage,
       },
@@ -76,9 +86,12 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <AuthProvider>
-      <RouterProvider router={router}></RouterProvider>
-      
-    </AuthProvider>
+    
+      <AuthProvider>
+       <ThemeProvider attribute='class' defaultTheme="light">
+         <RouterProvider router={router}></RouterProvider>
+       </ThemeProvider>
+      </AuthProvider>
+    
   </StrictMode>
 );

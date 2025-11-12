@@ -39,7 +39,7 @@ const Addbook = () => {
     console.log(bookInfo);
 
     axios
-      .post("http://localhost:3000/add-book", bookInfo)
+      .post(`http://localhost:3000/add-book`, bookInfo)
       .then((res) => {
         console.log(res);
         toast.success("Book added");

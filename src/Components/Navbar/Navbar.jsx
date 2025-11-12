@@ -3,7 +3,10 @@ import { Link, NavLink } from "react-router";
 import { AuthContext } from "../../Context/AuthContext";
 import { Tooltip } from "react-tooltip";
 import toast, { ToastBar, Toaster } from "react-hot-toast";
+import { useTheme } from "next-themes";
 // import { toast, ToastContainer } from "react-toastify";
+import { MdLightMode } from "react-icons/md";
+import { MdDarkMode } from "react-icons/md";
 
 
 
@@ -14,6 +17,8 @@ const Navbar = () => {
   // if (loading) {
   //   return <span className="loading loading-spinner text-primary"></span>;
   // }
+
+  const {theme, setTheme} = useTheme()
 
   const links = (
     <>
@@ -76,6 +81,12 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end flex gap-1  items-center">
+       
+        <button 
+        onClick={()=>setTheme(theme === 'light'? 'dark' : 'light')}
+        className="btn rounded-lg border-2 dark:bg-white text-black border-amber-300">
+         {theme === 'light'? <MdDarkMode className="text-xl"/> : <MdLightMode className="text-[24px]"/>}
+        </button>
         <div>
           {user && (
             <div

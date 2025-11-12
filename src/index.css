@@ -1,16 +1,24 @@
 
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 @plugin "daisyui";
-@plugin "daisyui/theme" {
-  name: "light";
-  default: true;
-  --color-primary: gray;
-  --color-secondary: black;
-}
+
 
 a.active {
   border-bottom: 2px solid gray;
 }
+
+/* body.light {
+  background-color: white;
+  color: black;
+}
+
+body.dark {
+  background-color: #121212;
+  color: white;
+} */
+
+
 
 
 
