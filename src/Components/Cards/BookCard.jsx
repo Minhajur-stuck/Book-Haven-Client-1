@@ -4,7 +4,7 @@ const BookCard = ({book}) => {
   console.log(book)
   const {title, author, coverImage} = book;
   return (
-    <div className="card bg-base-100  md:w-70 shadow-2xl shadow-indigo-500 hover:scale-105 transition delay-150 duration-300 ease-in-out mb-10 sm:mb-0  md:m-10 ">
+    <div className="card bg-base-100  sm:w-70 shadow-2xl shadow-indigo-500 hover:scale-105 transition delay-150 duration-300 ease-in-out mb-10  md:mb-0  md:m-10 ">
       <figure className="px-10 pt-10">
         <img
           src={coverImage}

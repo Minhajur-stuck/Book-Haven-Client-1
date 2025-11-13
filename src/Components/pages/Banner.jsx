@@ -6,7 +6,7 @@ const Banner = () => {
     <div className="  w-11/12  h-full mx-auto flex flex-col sm:flex-row items-center justify-between overflow-hidden mb-30 mt-9 sm:mt-15  pb-5 md:pb-0">
       <div className="space-y-5  pb-5">
         <motion.h1
-          className="text-[40px] sm:text-[60px]  font-bold  text-sm/14"
+          className="text-[40px]  md:text-[60px]  font-bold  text-sm/14"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
@@ -14,7 +14,7 @@ const Banner = () => {
           A Smart Library <br/> For Smarter Readers
         </motion.h1>
         <motion.h2
-          className="text-2xl text-gray-600 mb-14"
+          className="text-xl md:text-2xl text-gray-600 mb-14"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
