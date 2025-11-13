@@ -55,7 +55,7 @@ const UpdateBook = () => {
   };
   return (
     <div>
-      <div className="card   mx-auto shadow-2xl shadow-blue-400  w-[800px] mt-5 mb-5">
+      <div className="card   mx-auto shadow-2xl shadow-blue-400  md:w-[800px] mt-5 mb-5">
         <div className="card-body ">
           <h1 className="text-5xl font-bold ">Update Book</h1>
           <form onSubmit={handleUpdate} className="fieldset grid grid-cols-2">

@@ -65,7 +65,7 @@ const Navbar = () => {
 
   console.log(user);
   return (
-    <div className="navbar shadow-sm dark:border-b-1 dark:border-gray-300 max-w-11/12 h-[90px] mx-auto mb-0">
+    <div className="navbar shadow-sm dark:border-b-1 dark:border-gray-300 md:max-w-11/12 h-[90px] mx-auto mb-0">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -95,7 +95,7 @@ const Navbar = () => {
         <div className=" flex items-center gap-1 font-semibold text-xl ">
           {" "}
           <img
-            className="w-10"
+            className="w-10 hidden sm:block"
             src="https://i.ibb.co.com/KxHLwfcV/book.png"
             alt=""
           />{" "}

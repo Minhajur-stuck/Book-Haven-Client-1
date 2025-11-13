@@ -15,7 +15,7 @@ const LatestBook = () => {
   return (
     <div className="mb-25 w-11/12 mx-auto">
       <h1 className="text-center text-4xl">Latest Books_</h1>
-      <div className="grid grid-cols-3 p-13 mt-7">
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 md:p-13 md:mt-7 mt-20 ">
         {books.map((book) => (
           <BookCard key={book._id} book={book}></BookCard>
         ))}

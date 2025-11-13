@@ -67,15 +67,15 @@ const BookDetails = () => {
   //delete funciton
   return (
     <div className="m-5">
-      <div className="flex justify-center  w-[800px] mx-auto m-10">
-        <div className="w-[50%] ">
+      <div className="flex md:justify-center flex-col md:flex-row  md:w-[800px] mx-auto m-10">
+        <div className="md:w-[50%] mb-15 md:mb-0">
           <img
-            className=" h-[500px] mx-auto w-[90%] rounded-2xl  shadow-lg  shadow-indigo-500"
+            className=" h-[500px] mx-auto md:w-[90%] rounded-2xl  shadow-lg  shadow-indigo-500"
             src={coverImage}
             alt=""
           />
         </div>
-        <div className="w-[50%] pr-20 space-y-2  ">
+        <div className="md:w-[50%] md:pr-20 space-y-2  ">
          <div className="flex items-center">
            <AiTwotoneStar />
           <p> {rating}</p>
@@ -96,7 +96,7 @@ const BookDetails = () => {
         {cmnt.map((item) => (
           <div
             key={item._id}
-            className="card w-[60%] h-[100px] mt-4 mx-auto border-2 border-gray-500 bg-base-100 card-sm shadow-sm rounded-4xl"
+            className="card  md:w-[60%] md:h-[100px] mt-4 mx-auto border-2 border-gray-500 bg-base-100 card-sm shadow-sm rounded-4xl"
           >
             <div className="card-body flex-row justify-between items-center">
               <div>
@@ -119,7 +119,7 @@ const BookDetails = () => {
         ))}
       </div>
       <form onSubmit={handleComment}>
-        <div class="w-[60%] mx-auto mt-4 mb-4 border-2 border-gray-500 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
+        <div class="md:w-[60%] mx-auto mt-4 mb-4 border-2 border-gray-500 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
           <div class="px-4 py-2 bg-white rounded-t-lg dark:bg-gray-800">
             <label for="comment" class="sr-only">
               Your comment

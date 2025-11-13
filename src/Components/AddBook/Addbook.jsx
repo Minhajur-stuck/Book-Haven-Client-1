@@ -57,7 +57,7 @@ const Addbook = () => {
   };
   return (
     <div className="mt-20">
-      <div className="card   mx-auto shadow-lg  shadow-indigo-500  w-[800px] mt-5 mb-5">
+      <div className="card   mx-auto shadow-lg  shadow-indigo-500  md:w-[800px] mt-5 mb-5">
         <div className="card-body ">
           <div className="text-3xl text-gray-600 font-bold flex items-center gap-2">Add Book <img className="w-10" src="https://i.ibb.co.com/KxHLwfcV/book.png" alt="" />  </div>
           <form onSubmit={handleSubmit} className="fieldset grid grid-cols-2">

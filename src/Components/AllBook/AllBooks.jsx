@@ -36,7 +36,7 @@ const AllBooks = () => {
   console.log(books)
   //name,author,genre, rating.
   return (
-    <div className=" w-11/12 mx-auto">
+    <div className=" md:w-11/12 mx-auto">
       <div className="  mt-2  text-right pr-5">
         <button
           className="btn"
@@ -60,7 +60,7 @@ const AllBooks = () => {
           </li>
         </ul>
       </div>
-      <div className=" mt-5 ">
+      <div className=" mt-5 overflow-x-auto">
         <table className="table ">
           {/* head */}
           <thead>
@@ -71,13 +71,13 @@ const AllBooks = () => {
               <th>Author</th>
               <th>Genre</th>
               <th>Rating</th>
-              <th className="pl-10">Actions</th>
+              <th className="sm:pl-10">Actions</th>
             </tr>
           </thead>
           <tbody>
             {/* row 1 */}
             {books.map((book, index) => (
-              <tr key={book._id} className="font-semibold text-[16px]">
+              <tr key={book._id} className="font-semibold md:text-[16px]">
                 <td>{index + 1}</td>
                 <td><img className="w-10" src={book.coverImage} alt="" /></td>
                 <td>{book.title}</td>
@@ -85,7 +85,7 @@ const AllBooks = () => {
                 <td>{book.genre}</td>
                 <td>{book.rating}</td>
                 <td>
-                  <Link to={`/bookDetails/${book._id}`} className="btn hover:opacity-90 mr-2 rounded-4xl  border-0 w-[140px] text-white bg-indigo-600">
+                  <Link to={`/bookDetails/${book._id}`} className="btn hover:opacity-90 mr-2 rounded-4xl  border-0 md:w-[140px] text-white bg-indigo-600">
                     View Details
                   </Link>
                 </td>
