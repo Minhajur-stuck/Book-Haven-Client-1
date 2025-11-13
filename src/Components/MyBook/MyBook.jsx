@@ -12,7 +12,12 @@ const MyBook = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/myBooks/?email=${user.email}`)
+      .get(`http://localhost:3000/myBooks/?email=${user.email}`, {
+        headers: {
+          authorization: `Bearer ${user.accessToken}`,
+          "Content-Type": "application/json",
+        },
+      })
       .then((data) => {
         setBooks(data.data);
         console.log(data.data);
@@ -27,7 +32,12 @@ const MyBook = () => {
   const handleDelete = (id) => {
     console.log(id);
 
-    axios.delete(`http://localhost:3000/delete-book/${id}`).then((res) => {
+    axios.delete(`http://localhost:3000/delete-book/${id}`, {
+        headers: {
+          authorization: `Bearer ${user.accessToken}`,
+          "Content-Type": "application/json",
+        },
+      }).then((res) => {
       console.log(res);
       toast.success("deleted successfully");
       const remaining = myBooks.filter((book) => book._id !== id);

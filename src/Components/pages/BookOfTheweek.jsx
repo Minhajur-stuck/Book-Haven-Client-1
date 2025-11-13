@@ -5,17 +5,17 @@ const BookOfTheweek = () => {
     <div className="mb-25">
       <h1 className="text-center text-3xl">Book of the Week_</h1>
       <div className="hero  w-[80%]  mx-auto mt-13">
-        <div className="hero-content flex-col  lg:flex-row-reverse w-[100%]">
+        <div className="hero-content flex-col items-start  lg:flex-row-reverse w-[100%]">
           <div>
             <img
-            src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
-            className=" rounded-lg shadow-2xl"
+            src="https://i.ibb.co.com/kV18hpSp/75675524.jpg"
+            className=" rounded-lg shadow-2xl shadow-indigo-500 hover:scale-105 transition delay-150 duration-700 ease-in-out w-90"
           />
           </div>
           <div className="w-[50%]">
             <h1 className="text-2xl font-semibold">Summary_</h1>
             <p className="py-6 ">
-              "Dr. Emily Carter, a brilliant psychiatrist, begins to suspect that one of her patients is hiding a dark secret. As she delves deeper into his mind, she uncovers chilling connections between his past crimes and her own life. What starts as a professional case soon turns into a psychological battle where every move could be her last. Mind Games is a gripping thriller about trust, manipulation, and the thin line between sanity and madness."
+              “The Seerah of Prophet Muhammad (SWA)” is a detailed and inspiring biography of the final Prophet of Islam, Muhammad (peace be upon him). The book traces his entire life — from his noble birth in Makkah, through his youth known for honesty and truthfulness, to his divine mission as the Messenger of Allah. It explores the major events that shaped Islamic history, such as the first revelation in the Cave of Hira, the early struggles of the small Muslim community under persecution, and the Prophet’s migration (Hijrah) to Madinah which marked a turning point for Islam."
             </p>
            
           </div>

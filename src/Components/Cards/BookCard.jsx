@@ -2,20 +2,21 @@ import React from "react";
 
 const BookCard = ({book}) => {
   console.log(book)
-  const {title, author, image} = book;
+  const {title, author, coverImage} = book;
   return (
-    <div className="card bg-base-100 w-96 shadow-sm border m-10">
+    <div className="card bg-base-100 w-70 shadow-2xl shadow-indigo-500 hover:scale-105 transition delay-150 duration-300 ease-in-out  m-10">
       <figure className="px-10 pt-10">
         <img
-          src={image}
+          src={coverImage}
+
           alt="Shoes"
-          className="rounded-xl"
+          className="rounded-xl w-[200px] h-[300px]"
         />
       </figure>
-      <div className="card-body px-10">
-        <h2 className="card-title">{title}</h2>
-        <p>Author: {author}</p>
-        <div className="card-actions">
+      <div className="card-body ">
+        <h2 className=" font-semibold text-[18px] text-center">{title}</h2>
+        <p className="text-center font-semibold text-gray-600">Author: {author}</p>
+        <div className="card-actions  flex justify-center">
           <button className="btn">Details</button>
         </div>
       </div>

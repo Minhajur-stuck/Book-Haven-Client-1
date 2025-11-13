@@ -39,7 +39,12 @@ const Addbook = () => {
     console.log(bookInfo);
 
     axios
-      .post(`http://localhost:3000/add-book`, bookInfo)
+      .post(`http://localhost:3000/add-book`, bookInfo, {
+        headers: {
+          authorization: `Bearer ${user.accessToken}`,
+          "Content-Type": "application/json",
+        },
+      })
       .then((res) => {
         console.log(res);
         toast.success("Book added");
@@ -115,7 +120,6 @@ const Addbook = () => {
                 placeholder="User-Email"
                 name="email"
                 defaultValue={user.email}
-
               />
             </div>
             <div className="flex flex-col col-span-2">
@@ -126,7 +130,6 @@ const Addbook = () => {
                 placeholder="User-Name"
                 name="name"
                 defaultValue={user.displayName}
-                
               />
             </div>
             <div className="flex flex-col col-span-2 ">

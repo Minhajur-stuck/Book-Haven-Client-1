@@ -5,7 +5,7 @@ import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 
 const UpdateBook = () => {
-  const {id} = useParams()
+  const { id } = useParams();
   const { user } = use(AuthContext);
   const data = useLoaderData();
   const book = data.data;
@@ -33,14 +33,20 @@ const UpdateBook = () => {
       userName,
     };
 
-    axios.patch(`http://localhost:3000/update-book/${id}`, updateInfo)
-    .then(res =>{
-      console.log(res)
-      toast.success('Updated succefully')
-    })
-    .catch(err=>{
-      toast.error('Something went wrong!');
-    })
+    axios
+      .patch(`http://localhost:3000/update-book/${id}`, updateInfo, {
+        headers: {
+          authorization: `Bearer ${user.accessToken}`,
+          "Content-Type": "application/json",
+        },
+      })
+      .then((res) => {
+        console.log(res);
+        toast.success("Updated succefully");
+      })
+      .catch((err) => {
+        toast.error("Something went wrong!");
+      });
   };
   return (
     <div>
@@ -130,12 +136,7 @@ const UpdateBook = () => {
               />
             </div>
 
-            <button
-              
-              className="btn btn-neutral mt-4 col-span-2"
-            >
-              Update
-            </button>
+            <button className="btn btn-neutral mt-4 col-span-2">Update</button>
           </form>
           <Toaster></Toaster>
         </div>
