@@ -65,7 +65,7 @@ const Navbar = () => {
 
   console.log(user);
   return (
-    <div className="navbar shadow-sm max-w-11/12 h-[90px] mx-auto mb-0">
+    <div className="navbar shadow-sm dark:border-b-1 dark:border-gray-300 max-w-11/12 h-[90px] mx-auto mb-0">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

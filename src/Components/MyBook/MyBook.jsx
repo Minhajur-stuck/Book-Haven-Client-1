@@ -60,11 +60,11 @@ const MyBook = () => {
     return <Spinner></Spinner>;
   }
   return (
-    <div className=" w-11/12 mx-auto mt-5">
+    <div className=" w-11/12 mx-auto  mt-5 pb-40">
       <table className="table">
         {/* head */}
         <thead>
-          <tr>
+          <tr className="dark:text-gray-400">
             <th>Sl.</th>
             <th>CoverImage</th>
             <th>Book Name</th>
@@ -77,7 +77,7 @@ const MyBook = () => {
         <tbody>
           {/* row 1 */}
           {myBooks.map((book, index) => (
-            <tr key={book._id}>
+            <tr key={book._id} className="font-semibold text-[16px]">
               <td>{index + 1}</td>
               <td><img className="w-10" src={book.coverImage} alt="" /></td>
               <td>{book.title}</td>
@@ -85,14 +85,14 @@ const MyBook = () => {
               <td>{book.genre}</td>
               <td>{book.rating}</td>
               <td>
-                <Link to={`/updateBook/${book._id}`} className="btn hover:opacity-90 mr-2 rounded-4xl  border-0 text-white bg-indigo-600">
+                <Link to={`/updateBook/${book._id}`} className="btn hover:opacity-90 mr-2 rounded-4xl  border-0 w-[140px] text-white bg-indigo-600">
                   Update
                 </Link>
                 <button
                   onClick={() => {
                     handleDelete(book._id);
                   }}
-                  className="btn hover:opacity-90 mr-2 rounded-4xl  border-0 text-white bg-indigo-600"
+                  className="btn hover:opacity-90 mr-2 rounded-4xl  border-0 w-[140px] text-white bg-indigo-600"
                 >
                   Delete
                 </button>

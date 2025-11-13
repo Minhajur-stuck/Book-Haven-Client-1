@@ -63,7 +63,7 @@ const UpdateBook = () => {
               <label className="label">Title</label>
               <input
                 type="text"
-                className="input w-full"
+                className="input w-full dark:bg-black"
                 placeholder="Title"
                 name="title"
                 defaultValue={book.title}
@@ -73,7 +73,7 @@ const UpdateBook = () => {
               <label className="label">Author</label>
               <input
                 type="text"
-                className="input w-full"
+                className="input w-full dark:bg-black"
                 placeholder="Author"
                 name="author"
                 defaultValue={book.author}
@@ -83,7 +83,7 @@ const UpdateBook = () => {
               <label className="label">Genre</label>
               <input
                 type="text"
-                className="input w-full"
+                className="input w-full dark:bg-black"
                 placeholder="Genre"
                 name="genre"
                 defaultValue={book.genre}
@@ -93,7 +93,7 @@ const UpdateBook = () => {
               <label className="label">Rating</label>
               <input
                 type="text"
-                className="input w-full"
+                className="input w-full dark:bg-black"
                 placeholder="Rating"
                 name="rating"
                 defaultValue={book.rating}
@@ -104,7 +104,7 @@ const UpdateBook = () => {
               <label className="label">CoverImage</label>
               <input
                 type="text"
-                className="input w-full"
+                className="input w-full dark:bg-black"
                 placeholder="coverImage"
                 name="image"
                 defaultValue={book.image}
@@ -114,7 +114,7 @@ const UpdateBook = () => {
               <label className="label">User Email</label>
               <input
                 type="email"
-                className="input w-full"
+                className="input w-full dark:bg-black"
                 placeholder="User-Email"
                 name="email"
                 defaultValue={book.userEmail}
@@ -124,7 +124,7 @@ const UpdateBook = () => {
               <label className="label">User Name</label>
               <input
                 type="text"
-                className="input w-full"
+                className="input w-full dark:bg-black"
                 placeholder="User-Name"
                 name="name"
                 defaultValue={book.userName}
@@ -134,7 +134,7 @@ const UpdateBook = () => {
               <label className="label">Summary</label>
               <input
                 type="text"
-                className="input w-full"
+                className="input w-full dark:bg-black"
                 placeholder="Summary"
                 name="summary"
                 defaultValue={book.summary}

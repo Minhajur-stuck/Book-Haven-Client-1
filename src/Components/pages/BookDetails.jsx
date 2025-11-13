@@ -3,6 +3,7 @@ import { useLoaderData } from "react-router";
 import Spinner from "../Spinner/Spinner";
 import axios from "axios";
 import { AuthContext } from "../../Context/AuthContext";
+import { AiTwotoneStar } from "react-icons/ai";
 
 const BookDetails = () => {
   const book = useLoaderData();
@@ -66,21 +67,24 @@ const BookDetails = () => {
   //delete funciton
   return (
     <div className="m-5">
-      <div className="flex justify-center  w-[800px] mx-auto">
+      <div className="flex justify-center  w-[800px] mx-auto m-10">
         <div className="w-[50%] ">
           <img
-            className="rounded-lg h-[500px] mx-auto w-[90%] "
-            src="https://i.ibb.co.com/rK1PVkPT/books-8770939-1280.jpg"
+            className=" h-[500px] mx-auto w-[90%] rounded-2xl  shadow-lg  shadow-indigo-500"
+            src={coverImage}
             alt=""
           />
         </div>
-        <div className="w-[50%]  pr-20 space-y-2">
-          <p>{rating}</p>
+        <div className="w-[50%] pr-20 space-y-2  ">
+         <div className="flex items-center">
+           <AiTwotoneStar />
+          <p> {rating}</p>
 
+         </div>
           <h1 className="font-semibold text-3xl hover:text-green-700">
             {title}
           </h1>
-          <p className="font-semibold text-gray-500 hover:text-blue-400 text-[14px]">
+          <p className="font-semibold text-gray-500 hover:text-blue-400 text-[16px] text-sm">
             {author}
           </p>
           <p className="font-semibold text-gray-500 text-[14px]">{genre}</p>
@@ -109,9 +113,6 @@ const BookDetails = () => {
                 <p className="text-[16px] text-gray-700  px-13">
                   {item.comment}
                 </p>
-              </div>
-              <div className=" card-actions">
-                <button className="btn btn-primary">delete</button>
               </div>
             </div>
           </div>
