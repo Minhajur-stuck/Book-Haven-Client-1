@@ -56,16 +56,16 @@ const Addbook = () => {
       });
   };
   return (
-    <div>
-      <div className="card   mx-auto shadow-2xl shadow-blue-400  w-[800px] mt-5 mb-5">
+    <div className="mt-20">
+      <div className="card   mx-auto shadow-lg  shadow-indigo-500  w-[800px] mt-5 mb-5">
         <div className="card-body ">
-          <h1 className="text-5xl font-bold ">Add Book</h1>
+          <div className="text-3xl text-gray-600 font-bold flex items-center gap-2">Add Book <img className="w-10" src="https://i.ibb.co.com/KxHLwfcV/book.png" alt="" />  </div>
           <form onSubmit={handleSubmit} className="fieldset grid grid-cols-2">
             <div className="flex flex-col">
               <label className="label">Title</label>
               <input
                 type="text"
-                className="input w-full"
+                className="input w-full dark:bg-black"
                 placeholder="Title"
                 name="title"
                 required
@@ -75,7 +75,7 @@ const Addbook = () => {
               <label className="label">Author</label>
               <input
                 type="text"
-                className="input w-full"
+                className="input w-full dark:bg-black"
                 placeholder="Author"
                 name="author"
                 required
@@ -85,7 +85,7 @@ const Addbook = () => {
               <label className="label">Genre</label>
               <input
                 type="text"
-                className="input w-full"
+                className="input w-full dark:bg-black"
                 placeholder="Genre"
                 name="genre"
                 required
@@ -95,7 +95,7 @@ const Addbook = () => {
               <label className="label">Rating</label>
               <input
                 type="text"
-                className="input w-full"
+                className="input w-full dark:bg-black"
                 placeholder="Rating"
                 name="rating"
                 required
@@ -106,7 +106,7 @@ const Addbook = () => {
               <label className="label">CoverImage</label>
               <input
                 type="text"
-                className="input w-full"
+                className="input w-full dark:bg-black"
                 placeholder="coverImage"
                 name="image"
                 required
@@ -116,7 +116,7 @@ const Addbook = () => {
               <label className="label">User Email</label>
               <input
                 type="email"
-                className="input w-full"
+                className="input w-full dark:bg-black"
                 placeholder="User-Email"
                 name="email"
                 defaultValue={user.email}
@@ -126,7 +126,7 @@ const Addbook = () => {
               <label className="label">User Name</label>
               <input
                 type="text"
-                className="input w-full"
+                className="input w-full dark:bg-black"
                 placeholder="User-Name"
                 name="name"
                 defaultValue={user.displayName}
@@ -136,14 +136,14 @@ const Addbook = () => {
               <label className="label">Summary</label>
               <input
                 type="text"
-                className="input w-full"
+                className="input w-full dark:bg-black"
                 placeholder="Summary"
                 name="summary"
                 required
               />
             </div>
 
-            <button className="btn btn-neutral mt-4 col-span-2">Add</button>
+            <button className="btn hover:opacity-90 mr-2 rounded-4xl  border-0 text-white bg-indigo-600 mt-4 col-span-2">Add</button>
           </form>
           <Toaster></Toaster>
         </div>

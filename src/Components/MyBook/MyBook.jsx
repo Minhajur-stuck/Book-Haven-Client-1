@@ -60,12 +60,13 @@ const MyBook = () => {
     return <Spinner></Spinner>;
   }
   return (
-    <div className="card shadow-2xl w-[700px] mx-auto mt-5">
+    <div className=" w-11/12 mx-auto mt-5">
       <table className="table">
         {/* head */}
         <thead>
           <tr>
             <th>Sl.</th>
+            <th>CoverImage</th>
             <th>Book Name</th>
             <th>Author</th>
             <th>Genre</th>
@@ -77,20 +78,21 @@ const MyBook = () => {
           {/* row 1 */}
           {myBooks.map((book, index) => (
             <tr key={book._id}>
-              <th>{index + 1}</th>
+              <td>{index + 1}</td>
+              <td><img className="w-10" src={book.coverImage} alt="" /></td>
               <td>{book.title}</td>
               <td>{book.author}</td>
               <td>{book.genre}</td>
               <td>{book.rating}</td>
               <td>
-                <Link to={`/updateBook/${book._id}`} className="btn">
+                <Link to={`/updateBook/${book._id}`} className="btn hover:opacity-90 mr-2 rounded-4xl  border-0 text-white bg-indigo-600">
                   Update
                 </Link>
                 <button
                   onClick={() => {
                     handleDelete(book._id);
                   }}
-                  className="btn"
+                  className="btn hover:opacity-90 mr-2 rounded-4xl  border-0 text-white bg-indigo-600"
                 >
                   Delete
                 </button>

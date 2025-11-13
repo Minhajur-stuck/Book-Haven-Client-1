@@ -33,11 +33,11 @@ const AllBooks = () => {
     );
     setBooks(sorted);
   };
-
+  console.log(books)
   //name,author,genre, rating.
   return (
-    <div className="px-15 ">
-      <div className=" px-5 mt-2">
+    <div className=" w-11/12 mx-auto">
+      <div className="  mt-2  text-right pr-5">
         <button
           className="btn"
           popoverTarget="popover-1"
@@ -60,12 +60,13 @@ const AllBooks = () => {
           </li>
         </ul>
       </div>
-      <div className=" m-6 border">
-        <table className="table">
+      <div className=" mt-5 ">
+        <table className="table ">
           {/* head */}
           <thead>
-            <tr>
+            <tr className="dark:text-gray-500">
               <th>Sl.</th>
+              <th>CoverImage</th>
               <th>Book Name</th>
               <th>Author</th>
               <th>Genre</th>
@@ -76,14 +77,15 @@ const AllBooks = () => {
           <tbody>
             {/* row 1 */}
             {books.map((book, index) => (
-              <tr key={book._id}>
-                <th>{index + 1}</th>
+              <tr key={book._id} className="font-semibold text-[16px]">
+                <td>{index + 1}</td>
+                <td><img className="w-10" src={book.coverImage} alt="" /></td>
                 <td>{book.title}</td>
                 <td>{book.author}</td>
                 <td>{book.genre}</td>
                 <td>{book.rating}</td>
                 <td>
-                  <Link to={`/bookDetails/${book._id}`} className="btn">
+                  <Link to={`/bookDetails/${book._id}`} className="btn hover:opacity-90 mr-2 rounded-4xl  border-0 w-[140px] text-white bg-indigo-600">
                     View Details
                   </Link>
                 </td>

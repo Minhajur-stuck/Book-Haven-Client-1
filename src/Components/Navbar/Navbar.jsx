@@ -152,7 +152,7 @@ const Navbar = () => {
               Logout
             </button>
           ) : (
-            <Link className="btn" to="/login">
+            <Link className="btn hover:opacity-90 mr-2 rounded-4xl  border-0 text-white bg-indigo-600" to="/login">
               login/register
             </Link>
           )}

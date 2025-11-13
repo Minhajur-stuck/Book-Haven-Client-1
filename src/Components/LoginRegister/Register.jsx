@@ -46,54 +46,56 @@ const Register = () => {
       });
   }
   return (
-    <div className="flex items-center justify-center">
-      <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+    <div className="flex items-center justify-center  mt-20">
+      <div className="  w-[400px]  shrink-0 shadow-2xl shadow-lg rounded-lg shadow-indigo-500">
         <div className="card-body">
-          <h1 className="text-5xl font-bold">Login now!</h1>
+          <h1 className="text-2xl font-bold text-gray-500 text-center">R e g i s t e r</h1>
           <form onSubmit={handleRegister}>
             <fieldset className="fieldset">
-              <label className="label">Name</label>
+              <label className="block mb-1 text-[14px] font-semibold  text-gray-600">Name</label>
               <input
                 type="text"
-                className="input"
+                className="input w-full dark:bg-black"
                 placeholder="Name"
                 name="name"
               />
-              <label className="label">Email</label>
+              <label className="block mb-1 text-[14px] font-semibold text-gray-600">Email</label>
               <input
                 type="email"
-                className="input"
+                className="input w-full dark:bg-black"
                 placeholder="Email"
                 name="email"
               />
-              <label className="label">PhotoUrl</label>
+              <label className="block mb-1 text-[14px] font-semibold text-gray-600">PhotoUrl</label>
               <input
                 type="text"
-                className="input"
+                className="input w-full dark:bg-black"
                 placeholder="Url"
                 name="photo"
               />
-              <label className="label">Password</label>
+              <label className="block mb-1 text-[14px] font-semibold text-gray-600">Password</label>
               <input
                 type="password"
-                className="input"
+                className="input w-full dark:bg-black"
                 placeholder="Password"
                 name="password"
               />
               <div>
-                <a className="link link-hover">Forgot password?</a>
+                <a className="link link-hover text-[14px]">Forgot password?</a>
               </div>
-              <button className="btn btn-neutral mt-4">Register</button>
+              <button className="btn btn-neutral w-full  hover:opacity-90 mr-2 rounded-4xl  border-0 text-white bg-indigo-600   py-2 rounded-2xl cursor-pointer transition font-semibold mt-2">Register</button>
             </fieldset>
           </form>
-          <p>
-            Already have an account!
-            <Link to="/login" className="text-red-400 font-semibold">
+         
+          <button onClick={handleGoogle} className="mt-2  mb-4 w-full  hover:opacity-90 mr-2 rounded-4xl  text-black bg-white font-semibold  py-2  cursor-pointer transition border-2 border-gray-500">Login with Google</button>
+          <p className="text-red-500 font-semibold">{error}</p>
+
+           <p className="text-center text-[14px]">
+            Already have an account ! 
+            <Link to="/login" className="text-sky-300 font-semibold">
               Login
             </Link>
           </p>
-          <button onClick={handleGoogle} className="btn bg-blue-200 w-full">Login with Google</button>
-          <p className="text-red-500 font-semibold">{error}</p>
         </div>
       </div>
     </div>
